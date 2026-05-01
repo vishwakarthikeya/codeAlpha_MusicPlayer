@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>NeonWave · K-pop Music Player</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="glass-container">
+    <!-- HEADER with neon glow -->
+    <header class="player-header">
+      <h1 class="neon-title">♬ NEONWAVE <span>K-POP STUDIO</span></h1>
+      <div class="equalizer-badge" id="equalizerBadge">
+        <span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span>
+      </div>
+    </header>
+
+    <!-- MAIN PLAYER CARD -->
+    <div class="main-player-card">
+      <div class="visualizer-area" id="visualizerArea">
+        <div class="vinyl-glow"></div>
+        <div class="equalizer-animation" id="eqAnim">
+          <div class="eq-line"></div><div class="eq-line"></div><div class="eq-line"></div><div class="eq-line"></div><div class="eq-line"></div>
+        </div>
+      </div>
+      
+      <div class="song-info" id="nowPlayingInfo">
+        <h2 id="currentTitle">✨ Select a song</h2>
+        <p id="currentArtist">— waiting for vibe —</p>
+      </div>
+
+      <!-- PROGRESS BAR -->
+      <div class="progress-container">
+        <span class="time-current" id="currentTime">0:00</span>
+        <div class="progress-bar-bg" id="progressBarBg">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="time-duration" id="durationDisplay">0:00</span>
+      </div>
+
+      <!-- CONTROLS -->
+      <div class="controls">
+        <button class="ctrl-btn" id="prevBtn" aria-label="Previous">⏮</button>
+        <button class="ctrl-btn play-pause" id="playBtn" aria-label="Play">▶</button>
+        <button class="ctrl-btn" id="stopBtn" aria-label="Stop">⏹</button>
+        <button class="ctrl-btn" id="nextBtn" aria-label="Next">⏭</button>
+      </div>
+
+      <!-- VOLUME SLIDER -->
+      <div class="volume-row">
+        <span class="vol-icon">🔊</span>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.75">
+      </div>
+    </div>
+
+    <!-- SEARCH & UPLOAD BAR -->
+    <div class="action-bar">
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="🔍 Search by title... (real-time)" autocomplete="off">
+      </div>
+      <div class="upload-wrap">
+        <label for="fileUpload" class="neon-btn small">➕ UPLOAD</label>
+        <input type="file" id="fileUpload" accept="audio/mpeg,audio/wav,audio/ogg,audio/mp3" multiple style="display:none">
+        <div class="upload-hint">MP3, WAV, OGG</div>
+      </div>
+    </div>
+
+    <!-- PLAYLIST (glass table) -->
+    <div class="playlist-section">
+      <div class="playlist-header">
+        <span>🎧 MY PLAYLIST</span>
+        <span id="songCount">0 songs</span>
+      </div>
+      <div class="playlist-songs" id="playlistContainer">
+        <div class="empty-playlist">✨ Drop your music ✨<br>Click upload to add K-pop vibes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- scripts imported modularly -->
+  <script src="js/utils.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
